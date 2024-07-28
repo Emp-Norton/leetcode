@@ -10,3 +10,5 @@ class Solution(object):
                 sum = nums[i] + nums[j]
                 if sum == target:
                     return [i, j]
+
+#note this only beats 18%, get it together duder, be better
