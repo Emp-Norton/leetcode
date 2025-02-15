@@ -13,11 +13,21 @@ class Solution:
                     lowest_matched_index = vals[num]
         return lowest_matched_index + 1
 
-# TODO:
-	# Potential optimization:
-	        # divide and conquer to achieve logN runtime
-        # set search_ind = len(nums)/2
-        # if num > nums[search_ind]
-            # repeat with right-split array
-        # else
-            # repeat with left-split_Array
+
+
+# Optimized binary-search (iterative):
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        left, right = 0, len(nums) - 1
+
+        while left <= right:
+            mid = (left + right) // 2
+
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] < target:
+                left = mid + 1
+            else:
+                right = mid - 1
+
+        return left
